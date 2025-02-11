@@ -9,6 +9,10 @@
  *
  */
 
+function mergeIntervals(intArr: number[][]) {
+  
+}
+
 /*
  * Problem: Group Anagrams
  *
@@ -20,6 +24,20 @@
  *
  */
 
+function groupAnagrams(words: string[]) {
+  const map = new Map();
+
+  for (let word of words) {
+    let sortedWord = word.split("").sort().join("");
+    if (!map.has(sortedWord)) {
+      map.set(sortedWord, []);
+    }
+    map.get(sortedWord)!.push(word);
+  }
+
+  return Array.from(map.values());
+}
+
 /*
  * Problem: Longest Palindromic Substring
  *
@@ -30,6 +48,15 @@
  * Output: "bab" (or "aba")
  *
  */
+
+function longestPalindrome(word: string){
+  let start = 0
+  let maxLength = 0;
+
+  for (let i = 0; i < word.length; i++) {
+    
+  }
+}
 
 /*
  * Problem: Flatten Nested Object

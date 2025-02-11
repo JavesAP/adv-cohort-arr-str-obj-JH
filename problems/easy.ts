@@ -10,6 +10,14 @@
  *
  */
 
+const twoSum = (arr: number[],num: number) => {
+  const uniqueNumbers = new Set(arr)
+
+  for (let i = 0; i < arr.length; i++) {
+    
+  }
+}
+
 /*
  * Problem: Reverse Words in a String
  *
@@ -20,6 +28,10 @@
  * Output: "blue is sky the"
  *
  */
+
+const reverseSentence = (words: string) => {
+  return words.split(' ').reverse().join(' ')
+}
 
 /*
  * Problem: Most Common Character
@@ -32,6 +44,24 @@
  *
  */
 
+const mostCommonLetter = (word: string) => {
+  const freqObj = {}
+  let highestCount = 0
+  let highestCountLetter = ''
+
+  for (const letter of word) {
+    freqObj[letter] = (freqObj[letter] + 1 || 1)
+  }
+
+  for (const [letter, count] of Object.entries(freqObj)) {
+    if (count > highestCount) {
+      highestCount = count
+      highestCountLetter = letter
+    }
+  }
+  return highestCountLetter
+}
+
 /*
  * Problem: Find Duplicates
  *
@@ -43,6 +73,20 @@
  *
  */
 
+const duplicates = (string: string) => {
+  const freqObj = {}
+  const dupeCharacters = []
+
+  for (const char of string) {
+    freqObj[char] = (freqObj[char] + 1 || 1)
+  }
+
+  for (const [char, count] of Object.entries(freqObj)) {
+    if (count > 1) dupeCharacters.push(char)
+  }
+  return dupeCharacters
+}
+
 /*
  * Problem: First Unique Character
  *
@@ -53,6 +97,20 @@
  * Output: 0
  *
  */
+
+const firstUnique = (pattern: string) => {
+  const freqCount = {}
+  const dupedCharacters = new Set()
+
+  pattern.split('').forEach((char) => {
+    if (freqCount[char] >= 1) dupedCharacters.add(char)
+    freqCount[char] = (freqCount[char] + 1 || 1)
+  })
+
+  for (const elm of pattern) {
+    if (!dupedCharacters.has(elm)) return elm
+  }
+}
 
 /*
  * Problem: Find All Duplicates in an Array
